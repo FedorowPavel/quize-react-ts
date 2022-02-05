@@ -1,10 +1,13 @@
 import React from 'react';
-import './App.scss';
+import QuizeCard from "./Components/QuizeCard";
+import MainWrapper from "./Components/MainWrapper";
 
 function App() {
   return (
-    <div>Quize</div>
-  );
+    <MainWrapper>
+      <QuizeCard/>
+    </MainWrapper>
+);
 }
 
 export default App;

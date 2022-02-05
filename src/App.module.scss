@@ -1,0 +1,6 @@
+@value colors: "./variables.scss";
+@value regular, fail, success from colors;
+
+.test {
+  color: success;
+}
