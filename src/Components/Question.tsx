@@ -14,7 +14,7 @@ const Question: React.FC<{questionText: string}> = ({questionText}) => {
         fontWeight: 'bold',
       }}
     >
-      question text
+      {questionText}
     </Typography>
   )
 }

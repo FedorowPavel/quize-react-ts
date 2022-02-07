@@ -1,4 +1,4 @@
-import {Card, Typography} from "@mui/material";
+import {Card} from "@mui/material";
 import React from "react";
 import Logo from "./Logo";
 import Globe from "../assets/img/globe.svg"
