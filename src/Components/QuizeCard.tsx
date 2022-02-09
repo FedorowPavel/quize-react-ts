@@ -8,7 +8,7 @@ import AnswerOptions from "./AnswerOptions";
 import {CountriesContext} from "../Context/countriesContext";
 import {QuizButton} from "./NextButton";
 import {IQuestion} from "../models/question";
-import {CorrectnessContext, IsAnsweredContext} from "../Context/isAnswerContext";
+import {CorrectnessContext, IsAnsweredContext} from "../Context/answerContext";
 
 const cardStyles = {
   width: 400,

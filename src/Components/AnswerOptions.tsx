@@ -1,7 +1,7 @@
 import {Card} from "@mui/material";
 import React, {useContext} from "react";
 import {IOption} from "../models/question";
-import {CorrectnessContext, IsAnsweredContext} from "../Context/isAnswerContext";
+import {CorrectnessContext, IsAnsweredContext} from "../Context/answerContext";
 import {getPrefix} from "../utils";
 import styles from './AnswerOptions.module.scss'
 

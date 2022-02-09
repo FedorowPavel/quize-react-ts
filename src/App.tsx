@@ -6,7 +6,7 @@ import {Country} from "./models/country";
 import {BeatLoader} from "react-spinners";
 import FetchingIndicator from "./Components/FetchingIndicator";
 import {CountriesContext} from "./Context/countriesContext";
-import {CorrectnessContext, IsAnsweredContext} from "./Context/isAnswerContext";
+import {CorrectnessContext, IsAnsweredContext} from "./Context/answerContext";
 import {useState} from "react";
 
 
