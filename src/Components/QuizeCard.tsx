@@ -1,10 +1,14 @@
-import {Button, Card} from "@mui/material";
-import React, {useState} from "react";
+import {Card} from "@mui/material";
+import React, {useContext, useState} from "react";
 import Logo from "./Logo";
 import Globe from "../assets/img/globe.svg"
 import Tittle from "./Tittle";
 import Question from "./Question";
 import AnswerOptions from "./AnswerOptions";
+import {CountriesContext} from "../Context/countriesContext";
+import {QuizButton} from "./NextButton";
+import {IQuestion} from "../models/question";
+import {CorrectnessContext, IsAnsweredContext} from "../Context/isAnswerContext";
 
 const cardStyles = {
   width: 400,
@@ -16,18 +20,22 @@ const cardStyles = {
   flexDirection: "column"
 }
 
-const buttonStyles = {
-  alignSelf: "flex-end"
-}
-
 const QuizeCard: React.FC = () => {
-  const [isAnsweredCorrect, setIsAnsweredCorrect] = useState(false)
+  const [isAnswered] = useContext(IsAnsweredContext as any)
+  const [isCorrect] = useContext(CorrectnessContext as any)
+  console.log(isCorrect)
+
+  const countries = useContext(CountriesContext)
 
   const quizeTitle = "Country Quize";
-  const question = {
+  const question: IQuestion = {
     text: "Question text?",
-    options: ["First", "Second", "Third", "Fourth"],
-    correct: "First"
+    options: [
+      {option: "First", isCorrect: false},
+      {option: "Second", isCorrect: true},
+      {option: "Third", isCorrect: false},
+      {option: "Fourth", isCorrect: false},
+    ]
   };
 
   return (
@@ -36,7 +44,7 @@ const QuizeCard: React.FC = () => {
       <Logo img={Globe}/>
       <Question questionText={question.text}/>
       <AnswerOptions options={question.options}/>
-      <Button variant="contained" disabled={!isAnsweredCorrect} color="success" sx={buttonStyles}>Next</Button>
+      <QuizButton isDisabled={!isAnswered} text={'Next'}/>
     </Card>
   )
 }
