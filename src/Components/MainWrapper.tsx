@@ -13,12 +13,10 @@ const containerStyles = {
   justifyContent: 'center'
 }
 
-const MainWrapper: React.FC<{ children: React.ReactNode }> = ({children}) => {
-  return (
+const MainWrapper: React.FC<{ children: React.ReactNode }> = ({children}) => (
     <Container sx={containerStyles}>
       {children}
     </Container>
   )
-}
 
 export default MainWrapper

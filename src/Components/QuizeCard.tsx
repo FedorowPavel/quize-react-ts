@@ -1,5 +1,5 @@
-import {Card} from "@mui/material";
-import React from "react";
+import {Button, Card} from "@mui/material";
+import React, {useState} from "react";
 import Logo from "./Logo";
 import Globe from "../assets/img/globe.svg"
 import Tittle from "./Tittle";
@@ -11,10 +11,18 @@ const cardStyles = {
   padding: "52px 32px 32px 32px",
   borderRadius: "24px",
   position: "relative",
-  overflow: "visible"
+  overflow: "visible",
+  display: "flex",
+  flexDirection: "column"
+}
+
+const buttonStyles = {
+  alignSelf: "flex-end"
 }
 
 const QuizeCard: React.FC = () => {
+  const [isAnsweredCorrect, setIsAnsweredCorrect] = useState(false)
+
   const quizeTitle = "Country Quize";
   const question = {
     text: "Question text?",
@@ -28,6 +36,7 @@ const QuizeCard: React.FC = () => {
       <Logo img={Globe}/>
       <Question questionText={question.text}/>
       <AnswerOptions options={question.options}/>
+      <Button variant="contained" disabled={!isAnsweredCorrect} color="success" sx={buttonStyles}>Next</Button>
     </Card>
   )
 }
