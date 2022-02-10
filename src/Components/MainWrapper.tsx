@@ -10,7 +10,8 @@ const containerStyles = {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'center',
-  justifyContent: 'center'
+  justifyContent: 'center',
+  maxWidth: 'false',
 }
 
 const MainWrapper: React.FC<{ children: React.ReactNode }> = ({children}) => (
