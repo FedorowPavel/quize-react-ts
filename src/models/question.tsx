@@ -4,6 +4,6 @@ export interface IQuestion {
 }
 
 export interface IOption {
-  option: string,
+  value: string,
   isCorrect: boolean
 }

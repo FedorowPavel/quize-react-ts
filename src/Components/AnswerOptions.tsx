@@ -1,5 +1,5 @@
 import {Card} from "@mui/material";
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import {IOption} from "../models/question";
 import {CorrectnessContext, IsAnsweredContext} from "../Context/answerContext";
 import {getPrefix} from "../utils";
@@ -26,12 +26,26 @@ const cardStyles = {
 // TODO types
 // @ts-ignore
 const AnswerOptions: React.FC<{options: IOption[]}> = ({options}): JSX.Element[] => {
+  const [targetAnswer, setTargetAnswer] = useState<string>()
   const [isAnswered, setIsAnswered] = useContext(IsAnsweredContext as any)
   const [isCorrect, setIsCorrect] = useContext(CorrectnessContext as any)
 
   const answerHandler = (option: IOption) => {
     setIsAnswered(true)
     setIsCorrect(option.isCorrect)
+    setTargetAnswer(option.value)
+  }
+  console.log('[AnswerOptions] targetAnswer', targetAnswer)
+  console.log('[AnswerOptions] isAnswered', isAnswered)
+  console.log('[AnswerOptions] isCorrect', isCorrect)
+
+  const getStyles = (option: IOption) => {
+    if(option.isCorrect && isAnswered) {
+      return {backgroundColor: 'green', color: 'white', border: '2px solid green'}
+    }
+    if(!option.isCorrect && isAnswered && targetAnswer === option.value) {
+      return {backgroundColor: 'red', color: 'white', border: '2px solid red'}
+    }
   }
 
   return (
@@ -40,11 +54,11 @@ const AnswerOptions: React.FC<{options: IOption[]}> = ({options}): JSX.Element[]
         <Card
           key={index}
           sx={cardStyles}
-          className={isAnswered && styles.correct}
+          style={getStyles(option)}
           onClick={() => answerHandler(option)}
         >
           <span>{getPrefix(index)}</span>
-          <span>{option.option}</span>
+          <span>{option.value}</span>
         </Card>
       )
     })

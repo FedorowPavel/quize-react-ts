@@ -31,10 +31,10 @@ const QuizeCard: React.FC = () => {
   const question: IQuestion = {
     text: "Question text?",
     options: [
-      {option: "First", isCorrect: false},
-      {option: "Second", isCorrect: true},
-      {option: "Third", isCorrect: false},
-      {option: "Fourth", isCorrect: false},
+      {value: "First", isCorrect: false},
+      {value: "Second", isCorrect: true},
+      {value: "Third", isCorrect: false},
+      {value: "Fourth", isCorrect: false},
     ]
   };
 
