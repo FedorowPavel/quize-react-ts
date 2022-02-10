@@ -5,9 +5,9 @@ import {fetchCountries} from "./api/api";
 import {Country} from "./models/country";
 import {BeatLoader} from "react-spinners";
 import FetchingIndicator from "./Components/FetchingIndicator";
-import {CountriesContext} from "./Context/countriesContext";
 import {CorrectnessContext, IsAnsweredContext} from "./Context/answerContext";
 import {useState} from "react";
+import {IQuestion} from "./models/question";
 
 
 function App() {
@@ -19,21 +19,31 @@ function App() {
     () => fetchCountries(),
     {
       // refetchInterval: 1000,
-      // refetchOnWindowFocus: true,
+      refetchOnWindowFocus: false,
     });
 
+  const generateQuestion = (data: Country[]): IQuestion => {
+    return {
+      text: "Question text?",
+      options: [
+        {value: "First", isCorrect: false},
+        {value: "Second", isCorrect: true},
+        {value: "Third", isCorrect: false},
+        {value: "Fourth", isCorrect: false},
+      ]
+    };
+  }
+
   return (
-    <CountriesContext.Provider value={data}>
       <IsAnsweredContext.Provider value={[isAnsweredContext, setIsAnsweredContext]}>
         <CorrectnessContext.Provider value={[isCorrectAnswer, setIsCorrectAnswer]}>
           <MainWrapper>
-            {!isLoading && <QuizeCard/>}
+            {!isLoading && <QuizeCard question={generateQuestion(data!)}/>}
             <BeatLoader loading={isLoading} color={'#fff'} size={20}/>
             <FetchingIndicator isFetching={isFetching}/>
           </MainWrapper>
         </CorrectnessContext.Provider>
       </IsAnsweredContext.Provider>
-    </CountriesContext.Provider>
   );
 }
 

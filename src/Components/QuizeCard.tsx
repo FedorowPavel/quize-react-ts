@@ -1,11 +1,10 @@
 import {Card} from "@mui/material";
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import Logo from "./Logo";
 import Globe from "../assets/img/globe.svg"
 import Tittle from "./Tittle";
 import Question from "./Question";
 import AnswerOptions from "./AnswerOptions";
-import {CountriesContext} from "../Context/countriesContext";
 import {QuizButton} from "./NextButton";
 import {IQuestion} from "../models/question";
 import {CorrectnessContext, IsAnsweredContext} from "../Context/answerContext";
@@ -20,23 +19,11 @@ const cardStyles = {
   flexDirection: "column"
 }
 
-const QuizeCard: React.FC = () => {
+const QuizeCard: React.FC<{question: IQuestion}> = ({question}) => {
   const [isAnswered] = useContext(IsAnsweredContext as any)
   const [isCorrect] = useContext(CorrectnessContext as any)
-  console.log(isCorrect)
-
-  const countries = useContext(CountriesContext)
 
   const quizeTitle = "Country Quize";
-  const question: IQuestion = {
-    text: "Question text?",
-    options: [
-      {value: "First", isCorrect: false},
-      {value: "Second", isCorrect: true},
-      {value: "Third", isCorrect: false},
-      {value: "Fourth", isCorrect: false},
-    ]
-  };
 
   return (
     <Card sx={cardStyles}>
