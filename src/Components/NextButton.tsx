@@ -7,7 +7,7 @@ const buttonStyles = {
   alignSelf: "flex-end"
 }
 
-export const QuizButton: FC<{isDisabled: boolean, text: string}> = ({isDisabled, text}) => {
+export const QuizButton: FC<{text: string}> = ({ text}) => {
   const quizCtx = useQuiz()
 
   const nextHandler = () => {
@@ -19,8 +19,7 @@ export const QuizButton: FC<{isDisabled: boolean, text: string}> = ({isDisabled,
   return (
     <Button
       variant="contained"
-      disabled={isDisabled}
-      color="success"
+      color="warning"
       sx={buttonStyles}
       onClick={nextHandler}
     >

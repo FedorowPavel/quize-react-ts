@@ -5,8 +5,9 @@ import {fetchCountries} from "./api/api";
 import {Country} from "./models/country";
 import {BeatLoader} from "react-spinners";
 import FetchingIndicator from "./Components/FetchingIndicator";
-import {IQuestion} from "./models/question";
 import {QuizProvider} from "./Context/quiz-context";
+import React from "react";
+import {Confetti} from "./Components/Confetti";
 
 
 function App() {
@@ -14,21 +15,20 @@ function App() {
     "countries",
     () => fetchCountries(),
     {
-      // refetchInterval: 1000,
       refetchOnWindowFocus: false,
     });
 
-  const generateQuestion = (data: Country[]): IQuestion => {
-    return {
-      text: "Question text?",
-      options: [
-        {value: "First", isCorrect: false},
-        {value: "Second", isCorrect: true},
-        {value: "Third", isCorrect: false},
-        {value: "Fourth", isCorrect: false},
-      ]
-    };
-  }
+  // const generateQuestion = (data: Country[]): IQuestion => {
+  //   return {
+  //     text: "Question text?",
+  //     options: [
+  //       {value: "First", isCorrect: false},
+  //       {value: "Second", isCorrect: true},
+  //       {value: "Third", isCorrect: false},
+  //       {value: "Fourth", isCorrect: false},
+  //     ]
+  //   };
+  // }
 
   return (
     <QuizProvider>
@@ -36,6 +36,7 @@ function App() {
         {!isLoading && <QuizeCard/>}
         <BeatLoader loading={isLoading} color={'#fff'} size={20}/>
         <FetchingIndicator isFetching={isFetching}/>
+        <Confetti/>
       </MainWrapper>
     </QuizProvider>
   );

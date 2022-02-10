@@ -36,10 +36,10 @@ const AnswerOptions: React.FC<{options: IOption[]}> = ({options}): JSX.Element[]
 
   const getStyles = (option: IOption) => {
     if(option.isCorrect && quizCtx.state.isAnswered) {
-      return {backgroundColor: 'green', color: 'white', border: '2px solid green'}
+      return {backgroundColor: '#60BF88', color: 'white', border: '2px solid #60BF88'}
     }
     if(!option.isCorrect && quizCtx.state.isAnswered && targetAnswer === option.value) {
-      return {backgroundColor: 'red', color: 'white', border: '2px solid red'}
+      return {backgroundColor: '#EA8282', color: 'white', border: '2px solid #EA8282'}
     }
   }
 

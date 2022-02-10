@@ -7,6 +7,7 @@ import Question from "./Question";
 import AnswerOptions from "./AnswerOptions";
 import {QuizButton} from "./NextButton";
 import {useQuiz} from "../Context/quiz-context";
+import ReactConfetti from "react-confetti";
 
 const cardStyles = {
   width: 400,
@@ -28,8 +29,9 @@ const QuizeCard: FC = () => {
       <Logo img={Globe}/>
       <Question questionText={quizCtx.state.currentQuestion.text}/>
       <AnswerOptions options={quizCtx.state.currentQuestion.options}/>
-      <QuizButton isDisabled={!quizCtx.state.isAnswered} text={'Next'}/>
+      {quizCtx.state.isAnswered && <QuizButton text={'Next'}/>}
       {/*<button onClick={() => quizCtx.dispatch({type: QuizActionsEnum.INCREMENT_RECORD})}>increment record</button>*/}
+
     </Card>
   )
 }

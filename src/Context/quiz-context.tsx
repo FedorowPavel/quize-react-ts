@@ -28,7 +28,7 @@ function quizReducer(state: IQuiz, action: QuizAction) {
 
 const initQuizSate: IQuiz = {
   currentQuestion: {
-    text: "Question text?",
+    text: "Minsk",
     options: [
       {value: "First", isCorrect: false},
       {value: "Second", isCorrect: true},

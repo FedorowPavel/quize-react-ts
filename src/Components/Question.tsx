@@ -6,15 +6,14 @@ const Question: React.FC<{questionText: string}> = ({questionText}) => {
     <Typography
       variant={"h4"}
       sx={{
-        marginBottom: '32px',
+        marginBottom: '20px',
         color: 'rgba(47, 82, 123, 1)',
         fontSize: '24px',
         lineHeight: '32px',
-        textTransform: 'capitalize',
         fontWeight: 'bold',
       }}
     >
-      {questionText}
+      {questionText} is the capital of
     </Typography>
   )
 }
