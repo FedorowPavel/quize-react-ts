@@ -25,6 +25,7 @@ const QuizeCard: FC<{question: IQuestion}> = ({question}) => {
   const quizCtx = useQuiz()
 
 
+
   return (
     <Card sx={cardStyles}>
       <span>Record: {quizCtx.state.record}</span>
