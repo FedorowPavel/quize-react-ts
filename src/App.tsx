@@ -1,34 +1,15 @@
 import QuizeCard from "./Components/QuizeCard";
 import MainWrapper from "./Components/MainWrapper";
-import {useQuery} from "react-query";
-import {fetchCountries} from "./api/api";
-import {Country} from "./models/country";
 import {BeatLoader} from "react-spinners";
 import FetchingIndicator from "./Components/FetchingIndicator";
 import {QuizProvider} from "./Context/quiz-context";
 import React from "react";
 import {Confetti} from "./Components/Confetti";
+import {useCountries} from "./CustomHooks/useCountries";
 
 
 function App() {
-  const { isLoading, data, isFetching } = useQuery<Country[]>(
-    "countries",
-    () => fetchCountries(),
-    {
-      refetchOnWindowFocus: false,
-    });
-
-  // const generateQuestion = (data: Country[]): IQuestion => {
-  //   return {
-  //     text: "Question text?",
-  //     options: [
-  //       {value: "First", isCorrect: false},
-  //       {value: "Second", isCorrect: true},
-  //       {value: "Third", isCorrect: false},
-  //       {value: "Fourth", isCorrect: false},
-  //     ]
-  //   };
-  // }
+  const {isLoading, data, isFetching} = useCountries()
 
   return (
     <QuizProvider>

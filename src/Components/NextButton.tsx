@@ -4,7 +4,13 @@ import {useQuiz} from "../Context/quiz-context";
 import {QuizActionsEnum} from "../models/quiz";
 
 const buttonStyles = {
-  alignSelf: "flex-end"
+  alignSelf: "flex-end",
+  backgroundColor: 'rgba(249, 168, 38, 1)',
+  boxShadow: 'none',
+  fontSize: '16px',
+  lineHeight: '27px',
+  padding: '12px 20px',
+  borderRadius: '12px'
 }
 
 export const QuizButton: FC<{text: string}> = ({ text}) => {
@@ -19,7 +25,6 @@ export const QuizButton: FC<{text: string}> = ({ text}) => {
   return (
     <Button
       variant="contained"
-      color="warning"
       sx={buttonStyles}
       onClick={nextHandler}
     >

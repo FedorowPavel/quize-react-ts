@@ -30,10 +30,10 @@ const initQuizSate: IQuiz = {
   currentQuestion: {
     text: "Minsk",
     options: [
-      {value: "First", isCorrect: false},
-      {value: "Second", isCorrect: true},
-      {value: "Third", isCorrect: false},
-      {value: "Fourth", isCorrect: false},
+      {value: "Germany", isCorrect: false},
+      {value: "Belarus", isCorrect: true},
+      {value: "Poland", isCorrect: false},
+      {value: "Russia", isCorrect: false},
     ]
   },
   isAnswered: false,
@@ -50,7 +50,7 @@ function QuizProvider({children}: QuizProviderProps) {
 function useQuiz() {
   const context = useContext(QuizContext)
   if (context === undefined) {
-    throw new Error('useCount must be used within a QuizProvider')
+    throw new Error('seems like useQuiz is being used not within a QuizProvider')
   }
   return context
 }

@@ -30,8 +30,6 @@ const QuizeCard: FC = () => {
       <Question questionText={quizCtx.state.currentQuestion.text}/>
       <AnswerOptions options={quizCtx.state.currentQuestion.options}/>
       {quizCtx.state.isAnswered && <QuizButton text={'Next'}/>}
-      {/*<button onClick={() => quizCtx.dispatch({type: QuizActionsEnum.INCREMENT_RECORD})}>increment record</button>*/}
-
     </Card>
   )
 }

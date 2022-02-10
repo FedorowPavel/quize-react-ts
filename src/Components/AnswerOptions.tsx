@@ -4,6 +4,7 @@ import {IOption} from "../models/question";
 import {getPrefix} from "../utils";
 import {useQuiz} from "../Context/quiz-context";
 import {QuizActionsEnum} from "../models/quiz";
+import {CorrectnessIndicatorIcon} from "./CorrectnessIndicatorIcon";
 
 const cardStyles = {
   padding: '14px',
@@ -20,6 +21,9 @@ const cardStyles = {
     color: 'white',
     border: '2px solid rgba(249, 168, 38, 1)',
     cursor: 'pointer'
+  },
+  "span:nth-of-type(2)": {
+    flexGrow: '1'
   }
 }
 
@@ -57,6 +61,7 @@ const AnswerOptions: React.FC<{options: IOption[]}> = ({options}): JSX.Element[]
         >
           <span>{getPrefix(index)}</span>
           <span>{option.value}</span>
+          <CorrectnessIndicatorIcon isTarget={targetAnswer === option.value} isCorrect={option.isCorrect}/>
         </Card>
       )
     })
