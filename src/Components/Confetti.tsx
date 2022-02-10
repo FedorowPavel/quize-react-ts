@@ -4,10 +4,10 @@ import {useQuiz} from "../Context/quiz-context";
 
 export const Confetti: FC = (): JSX.Element | null => {
   const {state} = useQuiz()
-  if (state.isAnswered) {
-    return (
-      <ReactConfetti recycle={false}></ReactConfetti>
-    )
+  if (!(state.isAnswered && state.isCorrect)) {
+    return null
   }
-  return null
+  return (
+    <ReactConfetti recycle={false}/>
+  )
 }

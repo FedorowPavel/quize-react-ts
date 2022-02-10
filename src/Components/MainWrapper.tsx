@@ -14,7 +14,7 @@ const containerStyles = {
 }
 
 const MainWrapper: React.FC<{ children: React.ReactNode }> = ({children}) => (
-    <Container sx={containerStyles}>
+    <Container sx={containerStyles} maxWidth={false}>
       {children}
     </Container>
   )

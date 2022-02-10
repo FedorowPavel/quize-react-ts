@@ -26,19 +26,22 @@ const cardStyles = {
 // TODO types
 // @ts-ignore
 const AnswerOptions: React.FC<{options: IOption[]}> = ({options}): JSX.Element[] => {
-  const quizCtx = useQuiz()
+  const {state, dispatch} = useQuiz()
   const [targetAnswer, setTargetAnswer] = useState<string>()
 
   const answerHandler = (option: IOption) => {
     setTargetAnswer(option.value)
-    quizCtx.dispatch({type: QuizActionsEnum.SET_ANSWERED})
+    dispatch({type: QuizActionsEnum.SET_ANSWERED})
+    if(option.isCorrect) {
+      dispatch({type: QuizActionsEnum.SET_CORRECT})
+    }
   }
 
   const getStyles = (option: IOption) => {
-    if(option.isCorrect && quizCtx.state.isAnswered) {
+    if(option.isCorrect && state.isAnswered) {
       return {backgroundColor: '#60BF88', color: 'white', border: '2px solid #60BF88'}
     }
-    if(!option.isCorrect && quizCtx.state.isAnswered && targetAnswer === option.value) {
+    if(!option.isCorrect && state.isAnswered && targetAnswer === option.value) {
       return {backgroundColor: '#EA8282', color: 'white', border: '2px solid #EA8282'}
     }
   }
