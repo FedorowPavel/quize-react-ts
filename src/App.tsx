@@ -5,15 +5,11 @@ import {fetchCountries} from "./api/api";
 import {Country} from "./models/country";
 import {BeatLoader} from "react-spinners";
 import FetchingIndicator from "./Components/FetchingIndicator";
-import {CorrectnessContext, IsAnsweredContext} from "./Context/answerContext";
-import {useState} from "react";
 import {IQuestion} from "./models/question";
+import {QuizProvider} from "./Context/quiz-context";
 
 
 function App() {
-  const [isAnsweredContext, setIsAnsweredContext] = useState(false);
-  const [isCorrectAnswer, setIsCorrectAnswer] = useState(false);
-
   const { isLoading, data, isFetching } = useQuery<Country[]>(
     "countries",
     () => fetchCountries(),
@@ -35,15 +31,13 @@ function App() {
   }
 
   return (
-      <IsAnsweredContext.Provider value={[isAnsweredContext, setIsAnsweredContext]}>
-        <CorrectnessContext.Provider value={[isCorrectAnswer, setIsCorrectAnswer]}>
-          <MainWrapper>
-            {!isLoading && <QuizeCard question={generateQuestion(data!)}/>}
-            <BeatLoader loading={isLoading} color={'#fff'} size={20}/>
-            <FetchingIndicator isFetching={isFetching}/>
-          </MainWrapper>
-        </CorrectnessContext.Provider>
-      </IsAnsweredContext.Provider>
+    <QuizProvider>
+      <MainWrapper>
+        {!isLoading && <QuizeCard/>}
+        <BeatLoader loading={isLoading} color={'#fff'} size={20}/>
+        <FetchingIndicator isFetching={isFetching}/>
+      </MainWrapper>
+    </QuizProvider>
   );
 }
 

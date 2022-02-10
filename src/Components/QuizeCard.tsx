@@ -1,13 +1,12 @@
 import {Card} from "@mui/material";
-import React, {useContext} from "react";
+import React, {FC} from "react";
 import Logo from "./Logo";
 import Globe from "../assets/img/globe.svg"
 import Tittle from "./Tittle";
 import Question from "./Question";
 import AnswerOptions from "./AnswerOptions";
 import {QuizButton} from "./NextButton";
-import {IQuestion} from "../models/question";
-import {CorrectnessContext, IsAnsweredContext} from "../Context/answerContext";
+import {useQuiz} from "../Context/quiz-context";
 
 const cardStyles = {
   width: 400,
@@ -19,19 +18,18 @@ const cardStyles = {
   flexDirection: "column"
 }
 
-const QuizeCard: React.FC<{question: IQuestion}> = ({question}) => {
-  const [isAnswered] = useContext(IsAnsweredContext as any)
-  const [isCorrect] = useContext(CorrectnessContext as any)
-
-  const quizeTitle = "Country Quize";
+const QuizeCard: FC = () => {
+  const quizCtx = useQuiz()
 
   return (
     <Card sx={cardStyles}>
-      <Tittle title={quizeTitle}/>
+      <span>Record: {quizCtx.state.record}</span>
+      <Tittle title={"Country Quize"}/>
       <Logo img={Globe}/>
-      <Question questionText={question.text}/>
-      <AnswerOptions options={question.options}/>
-      <QuizButton isDisabled={!isAnswered} text={'Next'}/>
+      <Question questionText={quizCtx.state.currentQuestion.text}/>
+      <AnswerOptions options={quizCtx.state.currentQuestion.options}/>
+      <QuizButton isDisabled={!quizCtx.state.isAnswered} text={'Next'}/>
+      {/*<button onClick={() => quizCtx.dispatch({type: QuizActionsEnum.INCREMENT_RECORD})}>increment record</button>*/}
     </Card>
   )
 }

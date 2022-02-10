@@ -1,9 +1,9 @@
 import {Card} from "@mui/material";
-import React, {useContext, useState} from "react";
+import React, {useState} from "react";
 import {IOption} from "../models/question";
-import {CorrectnessContext, IsAnsweredContext} from "../Context/answerContext";
 import {getPrefix} from "../utils";
-import styles from './AnswerOptions.module.scss'
+import {useQuiz} from "../Context/quiz-context";
+import {QuizActionsEnum} from "../models/quiz";
 
 const cardStyles = {
   padding: '14px',
@@ -26,30 +26,25 @@ const cardStyles = {
 // TODO types
 // @ts-ignore
 const AnswerOptions: React.FC<{options: IOption[]}> = ({options}): JSX.Element[] => {
+  const quizCtx = useQuiz()
   const [targetAnswer, setTargetAnswer] = useState<string>()
-  const [isAnswered, setIsAnswered] = useContext(IsAnsweredContext as any)
-  const [isCorrect, setIsCorrect] = useContext(CorrectnessContext as any)
 
   const answerHandler = (option: IOption) => {
-    setIsAnswered(true)
-    setIsCorrect(option.isCorrect)
     setTargetAnswer(option.value)
+    quizCtx.dispatch({type: QuizActionsEnum.SET_ANSWERED})
   }
-  console.log('[AnswerOptions] targetAnswer', targetAnswer)
-  console.log('[AnswerOptions] isAnswered', isAnswered)
-  console.log('[AnswerOptions] isCorrect', isCorrect)
 
   const getStyles = (option: IOption) => {
-    if(option.isCorrect && isAnswered) {
+    if(option.isCorrect && quizCtx.state.isAnswered) {
       return {backgroundColor: 'green', color: 'white', border: '2px solid green'}
     }
-    if(!option.isCorrect && isAnswered && targetAnswer === option.value) {
+    if(!option.isCorrect && quizCtx.state.isAnswered && targetAnswer === option.value) {
       return {backgroundColor: 'red', color: 'white', border: '2px solid red'}
     }
   }
 
   return (
-    options.map((option, index) => {
+    options && options.map((option, index) => {
       return (
         <Card
           key={index}
