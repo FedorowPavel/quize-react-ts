@@ -16,6 +16,6 @@ export enum QuizActionsEnum {
   RESET_CORRECT = 'resetCorrect',
   SET_QUESTION = 'setQuestion'
 }
-export type QuizAction = {type: QuizActionsEnum}
+export type QuizAction = {type: QuizActionsEnum, payload?: any}
 export type QuizDispatch = (action: QuizAction) => void
 export type QuizProviderProps = {children: ReactNode}

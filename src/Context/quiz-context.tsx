@@ -20,6 +20,9 @@ function quizReducer(state: IQuiz, action: QuizAction) {
     case QuizActionsEnum.RESET_CORRECT: {
       return {...state, isCorrect: false}
     }
+    case QuizActionsEnum.SET_QUESTION: {
+      return {...state, currentQuestion: {...action.payload}}
+    }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)
     }

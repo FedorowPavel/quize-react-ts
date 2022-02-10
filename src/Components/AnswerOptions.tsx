@@ -60,7 +60,7 @@ const AnswerOptions: React.FC<{options: IOption[]}> = ({options}): JSX.Element[]
           onClick={() => answerHandler(option)}
         >
           <span>{getPrefix(index)}</span>
-          <span>{option.value}</span>
+          <span style={option.isCorrect ? {textDecoration: 'underline'} : {}}>{option.value}</span>
           <CorrectnessIndicatorIcon isTarget={targetAnswer === option.value} isCorrect={option.isCorrect}/>
         </Card>
       )
