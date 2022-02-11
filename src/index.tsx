@@ -5,13 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
+import {QuizProvider} from "./Context/quiz-context";
 
-const queryClient = new QueryClient();
+export const queryClient = new QueryClient();
 
 ReactDOM.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <App />
+      <QuizProvider>
+        <App />
+      </QuizProvider>
       <ReactQueryDevtools initialIsOpen />
     </QueryClientProvider>
   </React.StrictMode>,
