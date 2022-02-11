@@ -26,6 +26,9 @@ function quizReducer(state: IQuiz, action: QuizAction) {
     case QuizActionsEnum.RESET_FINISHED: {
       return {...state, isFinished: false}
     }
+    case QuizActionsEnum.RESET_GAME: {
+      return {...state, isFinished: false, isCorrect: false, isAnswered: false, record: 0}
+    }
     case QuizActionsEnum.SET_QUESTION: {
       return {...state, currentQuestion: {...action.payload}}
     }

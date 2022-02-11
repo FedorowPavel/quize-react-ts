@@ -1,6 +1,9 @@
 import {IQuestion} from "./question";
 import {ReactNode} from "react";
 
+export const ANSWER_OPTIONS_COUNT = 4
+export const COUNTRIES_QUERY_KEY = 'countries'
+
 export interface IQuiz {
   currentQuestion: IQuestion,
   isAnswered: boolean,
@@ -18,6 +21,7 @@ export enum QuizActionsEnum {
   SET_QUESTION = 'setQuestion',
   SET_FINISHED = 'setFinished',
   RESET_FINISHED = 'resetFinished',
+  RESET_GAME = 'resetGame',
 }
 export type QuizAction = {type: QuizActionsEnum, payload?: any}
 export type QuizDispatch = (action: QuizAction) => void
