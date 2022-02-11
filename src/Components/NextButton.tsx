@@ -21,10 +21,14 @@ export const QuizButton: FC<{text: string}> = ({ text}) => {
   const countries = queryClient.getQueryData('countries')
 
   const nextHandler = () => {
-    quizCtx.dispatch({type: QuizActionsEnum.INCREMENT_RECORD})
-    quizCtx.dispatch({type: QuizActionsEnum.RESET_ANSWERED})
-    quizCtx.dispatch({type: QuizActionsEnum.RESET_CORRECT})
-    quizCtx.dispatch({type: QuizActionsEnum.SET_QUESTION, payload: generateQuestion(countries as Country[], 4)})
+    if(quizCtx.state.isCorrect) {
+      quizCtx.dispatch({type: QuizActionsEnum.INCREMENT_RECORD})
+      quizCtx.dispatch({type: QuizActionsEnum.RESET_ANSWERED})
+      quizCtx.dispatch({type: QuizActionsEnum.RESET_CORRECT})
+      quizCtx.dispatch({type: QuizActionsEnum.SET_QUESTION, payload: generateQuestion(countries as Country[], 4)})
+      return
+    }
+    quizCtx.dispatch({type: QuizActionsEnum.SET_FINISHED})
   }
 
   return (

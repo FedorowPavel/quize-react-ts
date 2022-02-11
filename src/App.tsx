@@ -21,15 +21,15 @@ const App: () => (JSX.Element | null) = (): JSX.Element | null => {
     }
   }, [data])
 
-    return (
-          <MainWrapper>
-            {/*{!isLoading && <QuizeCard question={generateQuestion(data!,  4)}/>}*/}
-            {!isLoading && <QuizeCard />}
-            <BeatLoader loading={isLoading} color={'#fff'} size={20}/>
-            <FetchingIndicator isFetching={isFetching}/>
-            <Confetti/>
-          </MainWrapper>
-    );
+
+  return (
+        <MainWrapper>
+          {!isLoading && <QuizeCard />}
+          <BeatLoader loading={isLoading} color={'#fff'} size={20}/>
+          <FetchingIndicator isFetching={isFetching}/>
+          <Confetti/>
+        </MainWrapper>
+  );
 }
 
 export default App;
