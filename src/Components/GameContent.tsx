@@ -4,21 +4,21 @@ import Question from "./Question";
 import AnswerOptions from "./AnswerOptions";
 import {QuizButton} from "./NextButton";
 import React, {FC, useCallback} from "react";
-import {useQuiz} from "../Context/quiz-context";
+import {useQuiz} from "../CustomHooks/useQuiz";
 
 const GameContent: FC = (): JSX.Element => {
-  const quizCtx = useQuiz()
+  const {state} = useQuiz()
 
   const getButtonText = useCallback((): string => {
-    return quizCtx.state.isAnswered && quizCtx.state.isCorrect ? 'Next' : 'End quiz'
-  }, [quizCtx.state.isAnswered, quizCtx.state.isCorrect])
+    return state.isAnswered && state.isCorrect ? 'Next' : 'End quiz'
+  }, [state.isAnswered, state.isCorrect])
 
   return (
     <>
       <Logo img={Globe}/>
-      <Question questionText={quizCtx.state.currentQuestion.text}/>
-      <AnswerOptions options={quizCtx.state.currentQuestion.options}/>
-      {quizCtx.state.isAnswered && <QuizButton text={getButtonText()}/>}
+      <Question questionText={state.currentQuestion.text}/>
+      <AnswerOptions options={state.currentQuestion.options}/>
+      {state.isAnswered && <QuizButton text={getButtonText()}/>}
     </>
   )
 }

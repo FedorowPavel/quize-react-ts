@@ -1,6 +1,6 @@
 import ReactConfetti from "react-confetti";
 import React, {FC} from "react";
-import {useQuiz} from "../Context/quiz-context";
+import {useQuiz} from "../CustomHooks/useQuiz";
 
 export const Confetti: FC = (): JSX.Element | null => {
   const {state} = useQuiz()

@@ -2,9 +2,8 @@ import {Card} from "@mui/material";
 import React, {FC} from "react";
 import Tittle from "./Tittle";
 import QuizCardContent from "./QuizCardContent";
-import {useQuiz} from "../Context/quiz-context";
-import {QuizActionsEnum, QuizTypesEnum} from "../models/quiz";
 import QuizTypeSelector from "./QuizTypeSelector";
+import {useQuiz} from "../CustomHooks/useQuiz";
 
 const cardStyles = {
   width: 400,

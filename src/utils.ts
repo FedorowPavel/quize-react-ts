@@ -6,13 +6,6 @@ export const getPrefix = (index: number, isNumeric: boolean = false) => {
   return isNumeric ? index+1 : String.fromCharCode(65+index)
 }
 
-const getQuestionText = (data: Country[], quizType: QuizTypesEnum, countryIndexes: number[]): string => {
-  switch (quizType) {
-    case QuizTypesEnum.CAPITAL: return data[countryIndexes[0]].capital + ' is the capital of'
-    case QuizTypesEnum.FLAG: return 'Which country does this flag belong to?'
-  }
-}
-
 export const generateQuestion = (data: Country[], countOfOptions: number, quizType: QuizTypesEnum): IQuestion => {
   const countryIndexes = getRandomNumbers(0, data!.length - 1, countOfOptions)
   return {
@@ -27,6 +20,13 @@ export const generateQuestion = (data: Country[], countOfOptions: number, quizTy
   }
 }
 
+const getQuestionText = (data: Country[], quizType: QuizTypesEnum, countryIndexes: number[]): string => {
+  switch (quizType) {
+    case QuizTypesEnum.CAPITAL: return data[countryIndexes[0]].capital + ' is the capital of'
+    case QuizTypesEnum.FLAG: return 'Which country does this flag belong to?'
+  }
+}
+
 export const getRandomNumbers = (min: number, max: number, countOfUniqNumbers: number): number[] => {
   let uniqRandomNumbers = []
   while (uniqRandomNumbers.length < countOfUniqNumbers) {
@@ -38,7 +38,7 @@ export const getRandomNumbers = (min: number, max: number, countOfUniqNumbers: n
   return uniqRandomNumbers
 }
 
-export const mixArray = (arr: IOption[]): IOption[] => {
+const mixArray = (arr: IOption[]): IOption[] => {
   return arr.sort(() => Math.random() - 0.5);
 }
 

@@ -1,10 +1,11 @@
 import React, {FC} from "react";
-import {COUNTRIES_QUERY_KEY, QuizActionsEnum, quizTypes, QuizTypesEnum} from "../models/quiz";
-import {useQuiz} from "../Context/quiz-context";
 import {Button, Typography} from "@mui/material";
 import {generateQuestion} from "../utils";
 import {queryClient} from "../index";
 import {Country} from "../models/country";
+import {COUNTRIES_QUERY_KEY, quizTypes} from "../constants";
+import {QuizActionsEnum, QuizTypesEnum} from "../models/quiz";
+import {useQuiz} from "../CustomHooks/useQuiz";
 
 const btnStyles = {
   marginBottom: '40px',

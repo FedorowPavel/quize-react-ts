@@ -1,7 +1,7 @@
 import {Box, Typography} from "@mui/material";
 import React from "react";
-import {useQuiz} from "../Context/quiz-context";
 import {QuizTypesEnum} from "../models/quiz";
+import {useQuiz} from "../CustomHooks/useQuiz";
 
 const Question: React.FC<{questionText: string}> = ({questionText}) => {
   const {state} = useQuiz()

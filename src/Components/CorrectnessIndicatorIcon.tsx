@@ -1,7 +1,7 @@
-import {useQuiz} from "../Context/quiz-context";
 import CheckCircleOutlineRoundedIcon from "@mui/icons-material/CheckCircleOutlineRounded";
 import CancelOutlinedIcon from "@mui/icons-material/CancelOutlined";
 import React, {FC} from "react";
+import {useQuiz} from "../CustomHooks/useQuiz";
 
 
 export const CorrectnessIndicatorIcon: FC<{isTarget: boolean, isCorrect: boolean}> = ({isTarget, isCorrect}) => {

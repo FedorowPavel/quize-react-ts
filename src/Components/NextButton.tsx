@@ -1,10 +1,11 @@
-import React, {FC, useContext} from "react";
+import React, {FC} from "react";
 import {Button} from "@mui/material";
-import {useQuiz} from "../Context/quiz-context";
-import {ANSWER_OPTIONS_COUNT, COUNTRIES_QUERY_KEY, QuizActionsEnum} from "../models/quiz";
 import {generateQuestion} from "../utils";
 import {queryClient} from "../index";
 import {Country} from "../models/country";
+import {ANSWER_OPTIONS_COUNT, COUNTRIES_QUERY_KEY} from "../constants";
+import {QuizActionsEnum} from "../models/quiz";
+import {useQuiz} from "../CustomHooks/useQuiz";
 
 const buttonStyles = {
   alignSelf: "flex-end",

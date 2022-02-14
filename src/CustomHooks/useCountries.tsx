@@ -1,7 +1,7 @@
 import {useQuery} from "react-query";
 import {Country} from "../models/country";
 import {fetchCountries} from "../api/api";
-import {COUNTRIES_QUERY_KEY} from "../models/quiz";
+import {COUNTRIES_QUERY_KEY} from "../constants";
 
 export const useCountries = () => {
   const { isLoading, data, isFetching } = useQuery<Country[]>(

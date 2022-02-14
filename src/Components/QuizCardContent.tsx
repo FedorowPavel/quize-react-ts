@@ -1,12 +1,12 @@
 import React, {FC} from "react";
-import {useQuiz} from "../Context/quiz-context";
 import FinishContent from "./FinishContent";
 import GameContent from "./GameContent";
+import {useQuiz} from "../CustomHooks/useQuiz";
 
 const QuizCardContent: FC = (): JSX.Element => {
-  const quizCtx = useQuiz()
+  const {state} = useQuiz()
 
- return !quizCtx.state.isFinished ? <GameContent/> : <FinishContent/>
+ return !state.isFinished ? <GameContent/> : <FinishContent/>
 }
 
 export default QuizCardContent

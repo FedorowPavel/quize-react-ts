@@ -1,11 +1,12 @@
 import {Box, Button, Container, Typography} from "@mui/material";
 import Winner from "../assets/img/winner.svg";
 import React, {FC} from "react";
-import {useQuiz} from "../Context/quiz-context";
-import {ANSWER_OPTIONS_COUNT, COUNTRIES_QUERY_KEY, QuizActionsEnum} from "../models/quiz";
 import {generateQuestion} from "../utils";
 import {Country} from "../models/country";
 import {queryClient} from "../index";
+import {ANSWER_OPTIONS_COUNT, COUNTRIES_QUERY_KEY} from "../constants";
+import {QuizActionsEnum} from "../models/quiz";
+import {useQuiz} from "../CustomHooks/useQuiz";
 
 const FinishContent: FC = (): JSX.Element => {
   const {state, dispatch} = useQuiz()

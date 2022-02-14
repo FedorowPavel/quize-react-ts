@@ -2,9 +2,9 @@ import {Card} from "@mui/material";
 import React, {useCallback, useState} from "react";
 import {IOption} from "../models/question";
 import {getPrefix} from "../utils";
-import {useQuiz} from "../Context/quiz-context";
 import {QuizActionsEnum} from "../models/quiz";
 import {CorrectnessIndicatorIcon} from "./CorrectnessIndicatorIcon";
+import {useQuiz} from "../CustomHooks/useQuiz";
 
 const cardStyles = {
   padding: '14px',
