@@ -1,4 +1,4 @@
-import {Button, Container} from "@mui/material";
+import {Box, Button, Container, Typography} from "@mui/material";
 import Winner from "../assets/img/winner.svg";
 import React, {FC} from "react";
 import {useQuiz} from "../Context/quiz-context";
@@ -17,7 +17,13 @@ const FinishContent: FC = (): JSX.Element => {
   }
 
   return (
-    <>
+    <Container sx={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      color: 'rgba(29, 53, 93, 1)'
+    }}
+    >
       <Container
         sx={{
           width: '238px',
@@ -26,11 +32,39 @@ const FinishContent: FC = (): JSX.Element => {
           marginBottom: '40px',
         }}
       />
-      <span>RESULTS</span>
-      <span>Your got {state.record} correct answers</span>
-      <Button variant="outlined" onClick={resetGame}>Try again</Button>
-    </>
+      <Typography
+        paragraph={true}
+        sx={{
+          fontSize: '30px',
+          fontWeight: 'bold'
+      }}
+      >
+        RESULTS
+      </Typography>
+      <Box component="span" sx={{
+        marginBottom: '40px',
+        fontSize: '18px'
+      }}>
+        Your got
+        <Box component="span" sx={{
+          color: '#60BF88',
+          fontSize: '36px',
+          fontWeight: 'bold'
+        }}> {state.record} </Box>
+        correct answers!
+      </Box>
+      <Button
+        variant="outlined"
+        onClick={resetGame}
+        sx={{
+          color: 'rgba(29, 53, 93, 1)',
+          border: '1px solid  #1D355D',
+          boxSizing: 'border-box'
+
+        }}
+      >Try again</Button>
+    </Container>
   )
-}
+};
 
 export default FinishContent
