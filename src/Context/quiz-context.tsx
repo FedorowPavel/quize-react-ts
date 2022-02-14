@@ -1,5 +1,5 @@
 import {createContext, useContext, useReducer} from "react";
-import {IQuiz, QuizAction, QuizActionsEnum, QuizDispatch, QuizProviderProps} from "../models/quiz";
+import {IQuiz, QuizAction, QuizActionsEnum, QuizDispatch, QuizProviderProps, QuizTypesEnum} from "../models/quiz";
 
 export const QuizContext = createContext<{state: IQuiz, dispatch: QuizDispatch} | undefined>(undefined)
 
@@ -27,7 +27,10 @@ function quizReducer(state: IQuiz, action: QuizAction) {
       return {...state, isFinished: false}
     }
     case QuizActionsEnum.RESET_GAME: {
-      return {...state, isFinished: false, isCorrect: false, isAnswered: false, record: 0}
+      return {...state, isFinished: false, isCorrect: false, isAnswered: false, record: 0, isStarted: false}
+    }
+    case QuizActionsEnum.START_GAME: {
+      return {...state, isStarted: true, quizType: action.payload}
     }
     case QuizActionsEnum.SET_QUESTION: {
       return {...state, currentQuestion: {...action.payload}}
@@ -41,6 +44,7 @@ function quizReducer(state: IQuiz, action: QuizAction) {
 const initQuizSate: IQuiz = {
   currentQuestion: {
     text: "Minsk",
+    flag: '',
     options: [
       {value: "Germany", isCorrect: false},
       {value: "Belarus", isCorrect: true},
@@ -51,6 +55,8 @@ const initQuizSate: IQuiz = {
   isAnswered: false,
   isCorrect: false,
   isFinished: false,
+  isStarted: false,
+  quizType: QuizTypesEnum.CAPITAL,
   record: 0
 }
 

@@ -13,7 +13,7 @@ const FinishContent: FC = (): JSX.Element => {
 
   const resetGame = () => {
     dispatch({type: QuizActionsEnum.RESET_GAME})
-    dispatch({type: QuizActionsEnum.SET_QUESTION, payload: generateQuestion(countries as Country[], ANSWER_OPTIONS_COUNT)})
+    dispatch({type: QuizActionsEnum.SET_QUESTION, payload: generateQuestion(countries as Country[], ANSWER_OPTIONS_COUNT,state.quizType)})
   }
 
   return (

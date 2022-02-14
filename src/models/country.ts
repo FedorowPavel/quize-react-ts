@@ -29,8 +29,8 @@ export interface Country {
   car:          Car;
   timezones:    string[];
   continents:   string[];
-  flags:        CoatOfArms;
-  coatOfArms:   CoatOfArms;
+  flags:        IFlags;
+  coatOfArms:   IFlags;
   startOfWeek:  string;
   capitalInfo:  CapitalInfo;
   postalCode:   PostalCode;
@@ -45,7 +45,7 @@ export interface Car {
   side:  string;
 }
 
-export interface CoatOfArms {
+export interface IFlags {
   png: string;
   svg: string;
 }

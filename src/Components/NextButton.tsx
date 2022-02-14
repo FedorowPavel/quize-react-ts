@@ -25,7 +25,7 @@ export const QuizButton: FC<{text: string}> = ({ text}) => {
       quizCtx.dispatch({type: QuizActionsEnum.INCREMENT_RECORD})
       quizCtx.dispatch({type: QuizActionsEnum.RESET_ANSWERED})
       quizCtx.dispatch({type: QuizActionsEnum.RESET_CORRECT})
-      quizCtx.dispatch({type: QuizActionsEnum.SET_QUESTION, payload: generateQuestion(countries as Country[], ANSWER_OPTIONS_COUNT)})
+      quizCtx.dispatch({type: QuizActionsEnum.SET_QUESTION, payload: generateQuestion(countries as Country[], ANSWER_OPTIONS_COUNT, quizCtx.state.quizType)})
       return
     }
     quizCtx.dispatch({type: QuizActionsEnum.SET_FINISHED})

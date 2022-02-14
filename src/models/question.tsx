@@ -1,5 +1,6 @@
 export interface IQuestion {
   text: string,
+  flag: string,
   options: IOption[]
 }
 
