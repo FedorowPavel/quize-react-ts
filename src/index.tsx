@@ -2,21 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import {QuizProvider} from "./Components/QuizProvider";
+import {ThemeProvider} from "@mui/styles";
+import reportWebVitals from "./reportWebVitals";
+import quizTheme from "./Mui/theme";
 
 export const queryClient = new QueryClient();
 
 ReactDOM.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <QuizProvider>
-        <App />
-      </QuizProvider>
-      <ReactQueryDevtools initialIsOpen />
-    </QueryClientProvider>
+    <ThemeProvider theme={quizTheme}>
+      <QueryClientProvider client={queryClient}>
+        <QuizProvider>
+          <App />
+        </QuizProvider>
+        <ReactQueryDevtools initialIsOpen />
+      </QueryClientProvider>
+    </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

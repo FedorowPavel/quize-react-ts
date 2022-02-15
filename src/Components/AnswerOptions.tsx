@@ -6,30 +6,39 @@ import {QuizActionsEnum} from "../models/quiz";
 import {CorrectnessIndicatorIcon} from "./CorrectnessIndicatorIcon";
 import {useQuiz} from "../CustomHooks/useQuiz";
 import {makeStyles} from "@mui/styles";
+import quizTheme from "../Mui/theme";
 
 const useStyles = makeStyles({
   card: {
     padding: '14px',
     marginBottom: '24px',
     borderRadius: '12px',
-    border: '2px solid rgba(96, 102, 208, 0.7)',
+    border: `2px solid ${quizTheme.bgColors.regular}`,
     boxShadow: 'none',
-    color: 'rgba(96, 102, 208, 0.8)',
+    color: `${quizTheme.txtColors.regular}`,
     fontSize: '18px',
     display: 'flex',
     columnGap: '40px',
     "&:hover": {
-      backgroundColor: 'rgba(249, 168, 38, 1)',
+      backgroundColor: `${quizTheme.bgColors.orange}`,
       color: 'white',
-      border: '2px solid rgba(249, 168, 38, 1)',
+      border: `2px solid ${quizTheme.bgColors.orange}`,
       cursor: 'pointer'
     },
     "& span:nth-of-type(2)": {
       flexGrow: '1'
     }
   },
-  cardCorrect: {backgroundColor: '#60BF88', color: 'white', border: '2px solid #60BF88'},
-  cardNotCorrect: {backgroundColor: '#EA8282', color: 'white', border: '2px solid #EA8282'}
+  cardCorrect: {
+    backgroundColor: quizTheme.bgColors.correct,
+    color: `${quizTheme.txtColors.white}`,
+    border: `2px solid ${quizTheme.bgColors.correct}`
+  },
+  cardNotCorrect: {
+    backgroundColor: quizTheme.bgColors.notCorrect,
+    color: `${quizTheme.txtColors.white}`,
+    border: `2px solid ${quizTheme.bgColors.notCorrect}`
+  }
 })
 
 const AnswerOptions: React.FC<{options: IOption[]}> = ({options}): JSX.Element => {
@@ -49,7 +58,7 @@ const AnswerOptions: React.FC<{options: IOption[]}> = ({options}): JSX.Element =
     }
   }
 
-  const getClasses = useCallback((option: IOption) => {
+  const getClasses = useCallback((option: IOption): string | undefined => {
     if(option.isCorrect && state.isAnswered) {
       return classes.cardCorrect
     }
