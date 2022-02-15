@@ -4,23 +4,22 @@ import './index.scss';
 import App from './App';
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import {QuizProvider} from "./Components/QuizProvider";
-import {ThemeProvider} from "@mui/styles";
+import {QuizStateProvider} from "./Components/QuizProvider";
 import reportWebVitals from "./reportWebVitals";
-import quizTheme from "./Theme/theme";
+import {QuizThemeProvider} from "./Components/ThemeProvider";
 
 export const queryClient = new QueryClient();
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={quizTheme}>
+    <QuizThemeProvider>
       <QueryClientProvider client={queryClient}>
-        <QuizProvider>
+        <QuizStateProvider>
           <App />
-        </QuizProvider>
+        </QuizStateProvider>
         <ReactQueryDevtools initialIsOpen />
       </QueryClientProvider>
-    </ThemeProvider>
+    </QuizThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

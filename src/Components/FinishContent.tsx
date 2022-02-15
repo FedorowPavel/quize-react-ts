@@ -7,11 +7,13 @@ import {queryClient} from "../index";
 import {ANSWER_OPTIONS_COUNT, COUNTRIES_QUERY_KEY} from "../constants";
 import {QuizActionsEnum} from "../models/quiz";
 import {useQuiz} from "../CustomHooks/useQuiz";
-import quizTheme from "../Theme/theme";
+import {useTheme} from "@mui/styles";
+import {QuizTheme} from "@mui/material/styles";
 
 const FinishContent: FC = (): JSX.Element => {
   const {state, dispatch} = useQuiz()
   const countries = queryClient.getQueryData(COUNTRIES_QUERY_KEY)
+  const theme = useTheme<QuizTheme>()
 
   const resetGame = () => {
     dispatch({type: QuizActionsEnum.RESET_GAME})
@@ -23,7 +25,7 @@ const FinishContent: FC = (): JSX.Element => {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      color: quizTheme.txtColors.dark
+      color: theme.txtColors.dark
     }}
     >
       <Container
@@ -49,7 +51,7 @@ const FinishContent: FC = (): JSX.Element => {
       }}>
         Your got
         <Box component="span" sx={{
-          color: quizTheme.txtColors.green,
+          color: theme.txtColors.green,
           fontSize: '36px',
           fontWeight: 'bold'
         }}> {state.record} </Box>
@@ -59,8 +61,8 @@ const FinishContent: FC = (): JSX.Element => {
         variant="outlined"
         onClick={resetGame}
         sx={{
-          color: quizTheme.txtColors.dark,
-          border: `1px solid  ${quizTheme.bgColors.dark}`,
+          color: theme.txtColors.dark,
+          border: `1px solid  ${theme.bgColors.dark}`,
           boxSizing: 'border-box',
           borderRadius: '12px'
         }}

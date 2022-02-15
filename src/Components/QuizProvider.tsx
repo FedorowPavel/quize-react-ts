@@ -4,10 +4,10 @@ import {quizReducer} from "../Store/quizReducer";
 import {QuizContext} from "../Store/quizContext";
 import {initQuizSate} from "../constants";
 
-function QuizProvider({children}: QuizProviderProps) {
+function QuizStateProvider({children}: QuizProviderProps) {
   const [state, dispatch] = useReducer(quizReducer, initQuizSate)
   const value = {state, dispatch}
   return <QuizContext.Provider value={value}>{children}</QuizContext.Provider>
 }
 
-export {QuizProvider};
+export {QuizStateProvider};

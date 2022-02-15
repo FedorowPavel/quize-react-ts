@@ -1,5 +1,6 @@
 import {IQuestion} from "./question";
 import {ReactNode} from "react";
+import {QuizTheme} from '@mui/material/styles';
 
 export interface IQuiz {
   currentQuestion: IQuestion,
@@ -32,3 +33,4 @@ export enum QuizTypesEnum {
 export type QuizAction = {type: QuizActionsEnum, payload?: any}
 export type QuizDispatch = (action: QuizAction) => void
 export type QuizProviderProps = {children: ReactNode}
+export type ThemeProviderProps = {children: ReactNode, theme: QuizTheme}

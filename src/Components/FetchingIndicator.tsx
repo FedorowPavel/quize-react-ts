@@ -1,7 +1,8 @@
 import {PuffLoader} from "react-spinners";
 import React from "react";
 import {css} from "@emotion/react";
-import quizTheme from "../Theme/theme";
+import {useTheme} from "@mui/styles";
+import {QuizTheme} from "@mui/material/styles";
 
 const override = css`
   display: block;
@@ -11,8 +12,17 @@ const override = css`
   left: 0;
 `;
 
-const FetchingIndicator: React.FC<{isFetching: boolean}> = ({isFetching}) => (
-  <PuffLoader loading={isFetching} color={quizTheme.bgColors.lightGreen} size={30} css={override}/>
-)
+const FetchingIndicator: React.FC<{isFetching: boolean}> = ({isFetching}) => {
+  const theme = useTheme<QuizTheme>()
+
+  return (
+    < PuffLoader
+      loading = {isFetching}
+      color = {theme.bgColors.lightGreen}
+      size = {30}
+      css = {override}
+    />
+  )
+}
 
 export default FetchingIndicator
