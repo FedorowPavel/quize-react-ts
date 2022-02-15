@@ -9,11 +9,20 @@ import {useQuiz} from "../CustomHooks/useQuiz";
 
 const btnStyles = {
   marginBottom: '40px',
-  backgroundColor: 'rgba(47, 82, 123, 1)',
+  color: 'rgba(96, 102, 208, 0.7)',
+  border: '2px solid rgba(96, 102, 208, 0.7)',
+  height: '56px',
+  borderRadius: '12px',
+  ':hover': {
+    border: '2px solid rgba(249, 168, 38, 1)',
+    backgroundColor: 'rgba(249, 168, 38, 1)',
+    color: 'white',
+    cursor: 'pointer'
+  }
 }
 
 const titleStyles = {
-  marginBottom: '20px',
+  marginBottom: '40px',
   color: 'rgba(47, 82, 123, 1)',
   fontSize: '24px',
   lineHeight: '32px',
@@ -35,7 +44,7 @@ const QuizTypeSelector: FC = (): JSX.Element => {
       {quizTypes.map((type) => {
         return (
           <Button
-            variant='contained'
+            variant='outlined'
             key={type}
             size='large'
             sx={btnStyles}

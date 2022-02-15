@@ -27,9 +27,7 @@ const cardStyles = {
   }
 }
 
-// TODO types
-// @ts-ignore
-const AnswerOptions: React.FC<{options: IOption[]}> = ({options}): JSX.Element[] => {
+const AnswerOptions: React.FC<{options: IOption[]}> = ({options}): JSX.Element => {
   const {state, dispatch} = useQuiz()
   const [targetAnswer, setTargetAnswer] = useState<string>()
 
@@ -54,20 +52,23 @@ const AnswerOptions: React.FC<{options: IOption[]}> = ({options}): JSX.Element[]
   }, [options, state.isAnswered])
 
   return (
-    options && options.map((option, index) => {
-      return (
-        <Card
-          key={index}
-          sx={cardStyles}
-          style={getStyles(option)}
-          onClick={() => answerHandler(option)}
-        >
-          <span>{getPrefix(index)}</span>
-          <span style={option.isCorrect ? {textDecoration: 'underline'} : {}}>{option.value}</span>
-          <CorrectnessIndicatorIcon isTarget={targetAnswer === option.value} isCorrect={option.isCorrect}/>
-        </Card>
-      )
-    })
+    options &&
+      <>
+        {options.map((option, index) => {
+          return (
+            <Card
+              key={index}
+              sx={cardStyles}
+              style={getStyles(option)}
+              onClick={() => answerHandler(option)}
+            >
+              <span>{getPrefix(index)}</span>
+              <span>{option.value}</span>
+              <CorrectnessIndicatorIcon isTarget={targetAnswer === option.value} isCorrect={option.isCorrect}/>
+            </Card>
+          )
+        })}
+      </>
   )
 }
 
