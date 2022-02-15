@@ -1,6 +1,6 @@
 import {createTheme} from "@mui/material/styles";
 import {QuizTheme} from '@mui/material/styles';
-import {QuizProviderProps} from "../models/quiz";
+import {QuizProviderProps} from "../../models/quiz";
 import {ThemeProvider} from "@mui/styles";
 
 function QuizThemeProvider({children}: QuizProviderProps) {

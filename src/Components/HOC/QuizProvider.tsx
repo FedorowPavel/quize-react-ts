@@ -1,8 +1,8 @@
-import {QuizProviderProps} from "../models/quiz";
+import {QuizProviderProps} from "../../models/quiz";
 import {useReducer} from "react";
-import {quizReducer} from "../Store/quizReducer";
-import {QuizContext} from "../Store/quizContext";
-import {initQuizSate} from "../constants";
+import {quizReducer} from "../../Store/quizReducer";
+import {QuizContext} from "../../Store/quizContext";
+import {initQuizSate} from "../../constants";
 
 function QuizStateProvider({children}: QuizProviderProps) {
   const [state, dispatch] = useReducer(quizReducer, initQuizSate)

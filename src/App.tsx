@@ -1,5 +1,5 @@
 import QuizeCard from "./Components/QuizeCard";
-import MainWrapper from "./Components/MainWrapper";
+import MainWrapper from "./Components/HOC/MainWrapper";
 import {BeatLoader} from "react-spinners";
 import FetchingIndicator from "./Components/FetchingIndicator";
 import React from "react";

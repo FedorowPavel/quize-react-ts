@@ -1,6 +1,6 @@
 import {Container} from "@mui/material";
 import React from "react";
-import BgImage from "../assets/img/background.png";
+import BgImage from "../../assets/img/background.png";
 
 const containerStyles = {
   height: '100vh',

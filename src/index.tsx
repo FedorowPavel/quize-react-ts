@@ -4,9 +4,9 @@ import './index.scss';
 import App from './App';
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
-import {QuizStateProvider} from "./Components/QuizProvider";
+import {QuizStateProvider} from "./Components/HOC/QuizProvider";
 import reportWebVitals from "./reportWebVitals";
-import {QuizThemeProvider} from "./Components/ThemeProvider";
+import {QuizThemeProvider} from "./Components/HOC/ThemeProvider";
 
 export const queryClient = new QueryClient();
 
