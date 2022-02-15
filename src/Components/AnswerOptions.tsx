@@ -6,7 +6,7 @@ import {QuizActionsEnum} from "../models/quiz";
 import {CorrectnessIndicatorIcon} from "./CorrectnessIndicatorIcon";
 import {useQuiz} from "../CustomHooks/useQuiz";
 import {makeStyles} from "@mui/styles";
-import quizTheme from "../Mui/theme";
+import quizTheme from "../Theme/theme";
 
 const useStyles = makeStyles({
   card: {

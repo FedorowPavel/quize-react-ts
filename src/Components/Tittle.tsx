@@ -1,6 +1,6 @@
 import {Typography} from "@mui/material";
 import React from "react";
-import quizTheme from "../Mui/theme";
+import quizTheme from "../Theme/theme";
 
 const Tittle: React.FC<{title: string}> = ({title}) => {
   return (

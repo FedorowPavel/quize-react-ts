@@ -6,7 +6,7 @@ import {Country} from "../models/country";
 import {ANSWER_OPTIONS_COUNT, COUNTRIES_QUERY_KEY} from "../constants";
 import {QuizActionsEnum} from "../models/quiz";
 import {useQuiz} from "../CustomHooks/useQuiz";
-import quizTheme from "../Mui/theme";
+import quizTheme from "../Theme/theme";
 
 const buttonStyles = {
   alignSelf: "flex-end",

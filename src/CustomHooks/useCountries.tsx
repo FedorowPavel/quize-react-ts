@@ -1,6 +1,6 @@
 import {useQuery} from "react-query";
 import {Country} from "../models/country";
-import {fetchCountries} from "../api/api";
+import {fetchCountries} from "../Api/api";
 import {COUNTRIES_QUERY_KEY} from "../constants";
 
 export const useCountries = () => {

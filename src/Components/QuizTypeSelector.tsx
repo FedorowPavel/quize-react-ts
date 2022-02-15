@@ -6,7 +6,7 @@ import {Country} from "../models/country";
 import {COUNTRIES_QUERY_KEY, quizTypes} from "../constants";
 import {QuizActionsEnum, QuizTypesEnum} from "../models/quiz";
 import {useQuiz} from "../CustomHooks/useQuiz";
-import quizTheme from "../Mui/theme";
+import quizTheme from "../Theme/theme";
 
 const btnStyles = {
   marginBottom: '40px',

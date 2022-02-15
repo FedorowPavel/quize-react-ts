@@ -1,7 +1,7 @@
 import {PuffLoader} from "react-spinners";
 import React from "react";
 import {css} from "@emotion/react";
-import quizTheme from "../Mui/theme";
+import quizTheme from "../Theme/theme";
 
 const override = css`
   display: block;
