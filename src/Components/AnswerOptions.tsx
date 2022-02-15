@@ -21,7 +21,7 @@ const useStyles = makeStyles({
     columnGap: '40px',
     "&:hover": {
       backgroundColor: `${quizTheme.bgColors.orange}`,
-      color: 'white',
+      color: `${quizTheme.txtColors.white}`,
       border: `2px solid ${quizTheme.bgColors.orange}`,
       cursor: 'pointer'
     },
@@ -44,7 +44,6 @@ const useStyles = makeStyles({
 const AnswerOptions: React.FC<{options: IOption[]}> = ({options}): JSX.Element => {
   const {state, dispatch} = useQuiz()
   const [targetAnswer, setTargetAnswer] = useState<string>()
-
   const classes = useStyles();
 
   const answerHandler = (option: IOption) => {

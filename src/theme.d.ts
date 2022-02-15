@@ -1,20 +1,24 @@
 import { Theme, ThemeOptions } from '@mui/material/styles';
 
 declare module '@mui/material/styles' {
-  interface QuizTheme extends Theme {
+  export interface QuizTheme extends Theme {
     bgColors: {
       correct: string;
       notCorrect: string;
       whiteText: string;
       regular: string;
+      dark: string;
       orange: string;
+      lightGreen: string;
     },
     txtColors: {
       white: string;
       regular: string;
-      red: string;
+      dark: string;
+      green: string
     };
   }
+
   interface QuizThemeOptions extends ThemeOptions {
     [key: string]: any;
   }

@@ -1,15 +1,16 @@
-import React, {FC} from "react";
-import {Button} from "@mui/material";
+import React, {FC, useContext} from "react";
+import {Button, useTheme} from "@mui/material";
 import {generateQuestion} from "../utils";
 import {queryClient} from "../index";
 import {Country} from "../models/country";
 import {ANSWER_OPTIONS_COUNT, COUNTRIES_QUERY_KEY} from "../constants";
 import {QuizActionsEnum} from "../models/quiz";
 import {useQuiz} from "../CustomHooks/useQuiz";
+import quizTheme from "../Mui/theme";
 
 const buttonStyles = {
   alignSelf: "flex-end",
-  backgroundColor: 'rgba(249, 168, 38, 1)',
+  backgroundColor: quizTheme.bgColors.orange,
   boxShadow: 'none',
   fontSize: '16px',
   lineHeight: '27px',
@@ -17,7 +18,7 @@ const buttonStyles = {
   borderRadius: '12px'
 }
 
-export const QuizButton: FC<{text: string}> = ({ text}) => {
+export const QuizButton: FC<{text: string}> = ({text}) => {
   const quizCtx = useQuiz()
   const countries = queryClient.getQueryData(COUNTRIES_QUERY_KEY)
 

@@ -2,9 +2,12 @@ import {Box, Typography} from "@mui/material";
 import React from "react";
 import {QuizTypesEnum} from "../models/quiz";
 import {useQuiz} from "../CustomHooks/useQuiz";
+import {useTheme} from "@mui/styles";
+import {QuizTheme} from "@mui/material/styles";
 
 const Question: React.FC<{questionText: string}> = ({questionText}) => {
   const {state} = useQuiz()
+  const theme = useTheme<QuizTheme>()
 
   return (
     <>
@@ -15,7 +18,7 @@ const Question: React.FC<{questionText: string}> = ({questionText}) => {
             width: '84px',
             height: '54px',
             marginBottom: '12px',
-            border: '1px solid gray',
+            border: `1px solid ${theme.txtColors.dark}`,
             background: `center / cover no-repeat url(${state.currentQuestion.flag})`,
           }}
       />
@@ -24,7 +27,7 @@ const Question: React.FC<{questionText: string}> = ({questionText}) => {
         variant={"h4"}
         sx={{
           marginBottom: '20px',
-          color: 'rgba(47, 82, 123, 1)',
+          color: theme.txtColors.dark,
           fontSize: '24px',
           lineHeight: '32px',
           fontWeight: 'bold',

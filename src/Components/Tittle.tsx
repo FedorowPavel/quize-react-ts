@@ -1,12 +1,13 @@
 import {Typography} from "@mui/material";
 import React from "react";
+import quizTheme from "../Mui/theme";
 
 const Tittle: React.FC<{title: string}> = ({title}) => {
   return (
     <Typography
       variant={"h4"}
       sx={{
-        color: 'white',
+        color: quizTheme.txtColors.white,
         textTransform: 'capitalize',
         fontWeight: 'bold',
         position: 'absolute',

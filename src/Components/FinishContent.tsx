@@ -7,6 +7,7 @@ import {queryClient} from "../index";
 import {ANSWER_OPTIONS_COUNT, COUNTRIES_QUERY_KEY} from "../constants";
 import {QuizActionsEnum} from "../models/quiz";
 import {useQuiz} from "../CustomHooks/useQuiz";
+import quizTheme from "../Mui/theme";
 
 const FinishContent: FC = (): JSX.Element => {
   const {state, dispatch} = useQuiz()
@@ -22,7 +23,7 @@ const FinishContent: FC = (): JSX.Element => {
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      color: 'rgba(29, 53, 93, 1)'
+      color: quizTheme.txtColors.dark
     }}
     >
       <Container
@@ -48,7 +49,7 @@ const FinishContent: FC = (): JSX.Element => {
       }}>
         Your got
         <Box component="span" sx={{
-          color: '#60BF88',
+          color: quizTheme.txtColors.green,
           fontSize: '36px',
           fontWeight: 'bold'
         }}> {state.record} </Box>
@@ -58,10 +59,10 @@ const FinishContent: FC = (): JSX.Element => {
         variant="outlined"
         onClick={resetGame}
         sx={{
-          color: 'rgba(29, 53, 93, 1)',
-          border: '1px solid  #1D355D',
-          boxSizing: 'border-box'
-
+          color: quizTheme.txtColors.dark,
+          border: `1px solid  ${quizTheme.bgColors.dark}`,
+          boxSizing: 'border-box',
+          borderRadius: '12px'
         }}
       >Try again</Button>
     </Container>

@@ -4,12 +4,16 @@ const quizTheme: QuizTheme = createTheme({
   bgColors: {
     correct: '#60BF88',
     notCorrect: '#EA8282',
-    regular: 'rgba(96, 102, 208, 0.7)',
-    orange: 'rgba(249, 168, 38, 1)'
+    regular: '#6066d0b3',
+    dark: '#1D355DFF',
+    orange: '#f9a826',
+    lightGreen: '#7eff24'
   },
   txtColors: {
     white: '#fff',
-    regular: 'rgba(96, 102, 208, 0.8)',
+    regular: '#6066d0cc',
+    dark: '#1D355DFF',
+    green: '#60BF88FF'
   }
 });
 

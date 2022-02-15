@@ -6,24 +6,25 @@ import {Country} from "../models/country";
 import {COUNTRIES_QUERY_KEY, quizTypes} from "../constants";
 import {QuizActionsEnum, QuizTypesEnum} from "../models/quiz";
 import {useQuiz} from "../CustomHooks/useQuiz";
+import quizTheme from "../Mui/theme";
 
 const btnStyles = {
   marginBottom: '40px',
-  color: 'rgba(96, 102, 208, 0.7)',
-  border: '2px solid rgba(96, 102, 208, 0.7)',
+  color: quizTheme.txtColors.regular,
+  border: `2px solid ${quizTheme.txtColors.regular}`,
   height: '56px',
   borderRadius: '12px',
   ':hover': {
-    border: '2px solid rgba(249, 168, 38, 1)',
-    backgroundColor: 'rgba(249, 168, 38, 1)',
-    color: 'white',
+    border: `2px solid ${quizTheme.bgColors.orange}`,
+    backgroundColor: quizTheme.bgColors.orange,
+    color: quizTheme.txtColors.white,
     cursor: 'pointer'
   }
 }
 
 const titleStyles = {
   marginBottom: '40px',
-  color: 'rgba(47, 82, 123, 1)',
+  color: quizTheme.txtColors.dark,
   fontSize: '24px',
   lineHeight: '32px',
   fontWeight: 'bold',
